@@ -51,6 +51,13 @@ coverage/
 # Optional stylelint cache
 .stylelintcache
 
+# Large media files
+*.mp4
+*.avi
+*.mov
+*.webm
+src/assets/videos/
+
 # Output of 'npm pack'
 *.tgz
 

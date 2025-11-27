@@ -1,0 +1,302 @@
+.header {
+  background-color: var(--bg-color);
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  margin: 0;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-icon {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  position: relative;
+  transition: var(--transition);
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  transition: var(--transition);
+}
+
+.menu-icon::before {
+  top: -8px;
+}
+
+.menu-icon::after {
+  bottom: -8px;
+}
+
+.menu-icon.open {
+  background-color: transparent;
+}
+
+.menu-icon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu-icon.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-color);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  transform: translateY(-150%);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-links {
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-link {
+  display: block;
+  padding: 15px 0;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mobile-link:hover {
+  color: var(--primary-color);
+}
+
+/* 滚动效果 */
+.header.scrolled {
+  padding: 10px 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* 联系我们按钮样式 */
+.contact-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.contact-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.mobile-contact {
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px;
+}
+
+/* 联系名片样式 */
+.contact-card {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: linear-gradient(135deg, #ffffff, #f5f7fa);
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  min-width: 320px;
+  z-index: 1001;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
+  transform: rotate(45deg);
+}
+
+.contact-card h3 {
+  color: var(--secondary-color);
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.contact-card p {
+  margin: 10px 0;
+  color: var(--text-color);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-name,
+.contact-phone,
+.contact-email,
+.contact-address {
+  padding-left: 20px;
+  position: relative;
+}
+
+.contact-name::before,
+.contact-phone::before,
+.contact-email::before,
+.contact-address::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.contact-card p a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-card p a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* 移动端响应式调整 */
+@media (max-width: 768px) {
+  .contact-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 85%;
+    max-width: 90%;
+    margin-top: 0;
+  }
+  
+  .contact-card::before {
+    display: none;
+  }
+}

@@ -1,0 +1,343 @@
+.about {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.about.visible {
+  opacity: 1;
+}
+
+/* 页面标题样式 */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+  position: relative;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* 公司简介样式 */
+.company-intro {
+  background-color: var(--bg-color);
+}
+
+.intro-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.intro-text p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.intro-image {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.intro-image:hover img {
+  transform: scale(1.05);
+}
+
+/* 公司数据统计样式 */
+.company-stats {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-10px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 使命愿景价值观样式 */
+.mission {
+  background-color: var(--bg-color);
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.mission-item {
+  background-color: var(--light-bg);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.mission-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow);
+  border-color: var(--primary-color);
+}
+
+.mission-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.mission-title {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.mission-description {
+  font-size: 15px;
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+/* 团队介绍样式 */
+.team {
+  background-color: var(--light-bg);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.team-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-image img {
+  transform: scale(1.1);
+}
+
+.team-info {
+  padding: 20px;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--secondary-color);
+}
+
+.team-position {
+  font-size: 14px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.team-bio {
+  font-size: 14px;
+  color: var(--light-text);
+  line-height: 1.6;
+}
+
+/* 合作伙伴样式 */
+.partners {
+  background-color: var(--bg-color);
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  align-items: center;
+  justify-items: center;
+}
+
+.partner-logo {
+  padding: 20px;
+  background-color: var(--light-bg);
+  border-radius: 8px;
+  transition: var(--transition);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.partner-logo:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.partner-logo img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.partner-logo:hover img {
+  opacity: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mission-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .page-header {
+    padding: 80px 0 40px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .partner-logo {
+    padding: 15px;
+    height: 80px;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about.visible .page-header,
+.about.visible .intro-content,
+.about.visible .stat-item,
+.about.visible .mission-item,
+.about.visible .team-card,
+.about.visible .partner-logo {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* 延迟动画 */
+.about.visible .stat-item:nth-child(1) { animation-delay: 0.1s; }
+.about.visible .stat-item:nth-child(2) { animation-delay: 0.2s; }
+.about.visible .stat-item:nth-child(3) { animation-delay: 0.3s; }
+.about.visible .stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+.about.visible .mission-item:nth-child(1) { animation-delay: 0.1s; }
+.about.visible .mission-item:nth-child(2) { animation-delay: 0.2s; }
+.about.visible .mission-item:nth-child(3) { animation-delay: 0.3s; }
+
+.about.visible .team-card:nth-child(1) { animation-delay: 0.1s; }
+.about.visible .team-card:nth-child(2) { animation-delay: 0.2s; }
+.about.visible .team-card:nth-child(3) { animation-delay: 0.3s; }
+.about.visible .team-card:nth-child(4) { animation-delay: 0.4s; }

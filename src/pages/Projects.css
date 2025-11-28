@@ -1,0 +1,709 @@
+.projects {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.projects.visible {
+  opacity: 1;
+}
+
+/* 页面标题样式 */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+  position: relative;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* 项目筛选器样式 */
+.project-filters {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.filter-buttons {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background-color: var(--light-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 30px;
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* 项目网格样式 */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+/* 项目卡片样式 */
+.project-card {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 项目图片样式 */
+.project-card img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+
+/* 项目详情图片样式 */
+.detail-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 280px; /* 增加高度以更好地显示完整图片 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  background-color: #f5f5f5; /* 添加背景色避免空白区域突兀 */
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05); /* 减小缩放比例，避免图片被过度放大导致裁剪 */
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-details-btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.project-details-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+.project-info {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.project-description {
+  font-size: 14px;
+  color: var(--light-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 无项目提示 */
+.no-projects {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--light-text);
+  font-size: 16px;
+}
+
+/* 项目详情页面样式 */
+.project-detail {
+  padding: 20px 0;
+}
+
+/* 返回按钮样式 */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 200;
+}
+
+.back-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 项目详情内容样式 */
+.project-detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 项目内容包装器 */
+.project-detail-content-wrapper {
+  margin-bottom: 30px;
+}
+
+/* 项目视频样式 */
+.project-detail-video {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.project-detail-video h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.video-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background-color: #000;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.video-container:hover {
+  transform: scale(1.02);
+}
+
+.project-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}
+
+/* 响应式视频设计 */
+@media (max-width: 768px) {
+  .video-container {
+    border-radius: 8px;
+  }
+  
+  .project-detail-video h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-detail-video h3 {
+    font-size: 18px;
+  }
+  
+  .project-detail-video {
+    margin-top: 20px;
+  }
+}
+
+.project-detail-images {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.project-detail-image {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.project-detail-image:hover {
+  transform: scale(1.02);
+}
+
+.project-detail-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-detail-title {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.project-detail-description {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  margin: 0;
+  text-align: left;
+}
+
+/* 为新增的详情页元素添加样式 */
+.project-detail-overview {
+  margin-bottom: 30px;
+}
+
+.project-detail-overview h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 8px;
+}
+
+.project-detail-overview p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.project-detail-info {
+  margin-bottom: 40px;
+}
+
+.project-detail-info h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 8px;
+}
+
+.project-detail-info p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  text-align: justify;
+}
+
+/* 优化详情页图片显示 */
+.project-detail-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-detail-image img:hover {
+  transform: scale(1.02);
+}
+
+/* 视频占位符样式 */
+.video-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  text-align: center;
+  min-height: 300px;
+}
+
+.placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.placeholder-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.placeholder-subtext {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.placeholder-image {
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+}
+
+/* 项目详情模态框样式 */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.project-modal {
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+.modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px;
+}
+
+.modal-image {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.modal-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal-details {
+  padding: 0;
+}
+
+.modal-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.modal-description {
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.project-details-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.detail-item {
+  padding: 15px;
+  background-color: var(--light-bg);
+  border-radius: 8px;
+}
+
+.detail-item strong {
+  color: var(--secondary-color);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-item span {
+  color: var(--text-color);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .modal-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-image-container {
+    height: 200px;
+  }
+  
+  .filter-buttons {
+    gap: 8px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .project-modal {
+    max-height: 95vh;
+  }
+  
+  .modal-content {
+    padding: 30px 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .page-header {
+    padding: 80px 0 40px;
+  }
+  
+  .filter-buttons {
+    gap: 6px;
+  }
+  
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .project-image-container {
+    height: 180px;
+  }
+  
+  .project-info {
+    padding: 15px;
+  }
+  
+  .modal-close {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .modal-content {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .project-details-grid {
+    gap: 15px;
+  }
+  
+  .detail-item {
+    padding: 12px;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.projects.visible .page-header,
+.projects.visible .filter-buttons,
+.projects.visible .project-card {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.project-modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.project-modal {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* 延迟动画 */
+.projects.visible .project-card:nth-child(1) { animation-delay: 0.1s; }
+.projects.visible .project-card:nth-child(2) { animation-delay: 0.2s; }
+.projects.visible .project-card:nth-child(3) { animation-delay: 0.3s; }
+.projects.visible .project-card:nth-child(4) { animation-delay: 0.4s; }
+.projects.visible .project-card:nth-child(5) { animation-delay: 0.5s; }
+.projects.visible .project-card:nth-child(6) { animation-delay: 0.6s; }

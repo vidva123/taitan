@@ -42,7 +42,7 @@ function Home() {
       id: 2,
       title: '智迎宾Min机器人',
       description: '多功能迎宾服务机器人，支持“1+N”场景定制，适用于多种行业。',
-      image: 'src/assets/images/迎宾min.jpeg'
+      image: '/taitan/assets/images/迎宾min.jpeg'
     }
    
   ]

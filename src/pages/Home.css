@@ -13,7 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: 
+    linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%),
+    var(--hero-bg-image) center/cover no-repeat;
   color: white;
   position: relative;
   overflow: hidden;
@@ -29,8 +31,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/taitan/assets/images/公司3.jpeg') center/cover no-repeat;
-  opacity: 0.1;
+  background: var(--hero-bg-image) center/cover no-repeat;
+  opacity: 0.3; /* 增加不透明度让背景图片更明显 */
   z-index: 0;
 }
 

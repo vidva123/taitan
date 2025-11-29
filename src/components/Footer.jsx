@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
@@ -13,10 +14,9 @@ function Footer() {
           <div className="footer-links">
             <h4>快速链接</h4>
             <ul>
-              <li><a href="/">首页</a></li>
-              <li><a href="/about">关于我们</a></li>
-              <li><a href="/projects">产品展示</a></li>
-
+              <li><Link to="/">首页</Link></li>
+              <li><Link to="/about">关于我们</Link></li>
+              <li><Link to="/projects">产品展示</Link></li>
             </ul>
           </div>
           

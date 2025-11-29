@@ -40,6 +40,7 @@ function Header() {
               <li><Link to="/" className="nav-link">首页</Link></li>
               <li><Link to="/about" className="nav-link">关于我们</Link></li>
               <li><Link to="/projects" className="nav-link">项目展示</Link></li>
+              <li><Link to="/test-video" className="nav-link">视频测试</Link></li>
               <li><button className="contact-button" onClick={toggleContactCard}>联系我们</button></li>
             </ul>
           </nav>
@@ -56,6 +57,7 @@ function Header() {
           <li><Link to="/" className="mobile-link" onClick={toggleMenu}>首页</Link></li>
           <li><Link to="/about" className="mobile-link" onClick={toggleMenu}>关于我们</Link></li>
           <li><Link to="/projects" className="mobile-link" onClick={toggleMenu}>项目展示</Link></li>
+          <li><Link to="/test-video" className="mobile-link" onClick={toggleMenu}>视频测试</Link></li>
           <li><button className="contact-button mobile-contact" onClick={(e) => {
             toggleContactCard()
             toggleMenu()

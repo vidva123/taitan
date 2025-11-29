@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import './Home.css'
 import companyImage from '../assets/images/公司4.jpeg'
 import projectImage from '../assets/images/科sw洗地机1.jpeg'
+import yingbinmin from '../assets/images/迎宾min.jpeg'
+import company3 from '../assets/images/公司3.jpeg'
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false)
@@ -28,6 +30,9 @@ function Home() {
   useEffect(() => {
     setIsVisible(true)
     window.scrollTo(0, 0)
+    
+    // 设置英雄区域的背景图片
+    document.documentElement.style.setProperty('--hero-bg-image', `url(${company3})`)
   }, [])
 
   // 模拟项目数据
@@ -40,9 +45,9 @@ function Home() {
     },
     {
       id: 2,
-      title: '智迎宾Min机器人',
-      description: '多功能迎宾服务机器人，支持“1+N”场景定制，适用于多种行业。',
-      image: '/taitan/assets/images/迎宾min.jpeg'
+      title: '猎户星空豹小秘mini机器人',
+      description: '多功能迎宾服务机器人，支持"1+N"场景定制，适用于多种行业。',
+      image: yingbinmin
     }
    
   ]
@@ -147,8 +152,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-
 
       {/* 联系呼吁 */}
       <section className="cta section">
